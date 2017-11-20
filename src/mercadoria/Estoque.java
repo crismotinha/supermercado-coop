@@ -22,16 +22,24 @@ public class Estoque {
 	}
 	
 	
-	public void adiciona(Produto produto, int quantidade){
-		if(quantidade < 1)
-			return;
-		if(produtos.containsKey(produto.getCodigo())){
+	public boolean adiciona(Produto produto, int quantidade){
+            boolean foiAdicionado;
+		if(quantidade < 1){
+                    foiAdicionado = false;
+                }else {
+                    if(produtos.containsKey(produto.getCodigo())){
 			int qtd = this.quantidade.get(produto.getCodigo()) + quantidade;
 			this.quantidade.put(produto.getCodigo(), qtd);
-		}else{
+                    }else{
 			produtos.put(produto.getCodigo(), produto);
 			this.quantidade.put(produto.getCodigo(), quantidade);
+                    }
+                    
+                    foiAdicionado = true;
+                    
 		}
+                
+                return foiAdicionado;
 	}
 	
 	public void remove(String produto, int quantidade){
