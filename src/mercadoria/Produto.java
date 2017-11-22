@@ -2,10 +2,10 @@ package mercadoria;
 
 public class Produto {
 	private String nome;
-	private float preco;
+	private double preco;
 	private int codigo;	
 
-	public Produto(String nome, float preco) {
+	public Produto(String nome, double preco) {
 		this.nome = nome;
 		this.preco = preco;
 		codigo = nome.hashCode();
@@ -27,11 +27,11 @@ public class Produto {
 		this.codigo = codigo;
 	}
 
-	public float getPreco() {
+	public double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(float preco) {
+	public void setPreco(double preco) {
 		this.preco = preco;
 	}
 	

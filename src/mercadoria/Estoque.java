@@ -5,12 +5,11 @@ import java.util.Map;
 
 public class Estoque {
 	private Map<Integer, Produto> produtos = new HashMap<>();
-	private Map<Integer, Integer> quantidade = new HashMap<>();
+	private Map<Integer, Float> quantidade = new HashMap<>();
 
 	
-	public Estoque(Produto produto, int quantidade) {
-		produtos.put(produto.getCodigo(), produto);
-		this.quantidade.put(produto.getCodigo(), quantidade);
+	public Estoque() {
+            super();
 	}
 	
 	public Produto busca(String produto){
@@ -22,13 +21,13 @@ public class Estoque {
 	}
 	
 	
-	public boolean adiciona(Produto produto, int quantidade){
+	public boolean adiciona(Produto produto, float quantidade){
             boolean foiAdicionado;
 		if(quantidade < 1){
                     foiAdicionado = false;
                 }else {
                     if(produtos.containsKey(produto.getCodigo())){
-			int qtd = this.quantidade.get(produto.getCodigo()) + quantidade;
+			float qtd = this.quantidade.get(produto.getCodigo()) + quantidade;
 			this.quantidade.put(produto.getCodigo(), qtd);
                     }else{
 			produtos.put(produto.getCodigo(), produto);
@@ -42,10 +41,10 @@ public class Estoque {
                 return foiAdicionado;
 	}
 	
-	public void remove(String produto, int quantidade){
+	public void remove(String produto, float quantidade){
 		Produto p = busca(produto);
 		if(p != null){
-			int qtd = this.quantidade.get(p.getCodigo()) - quantidade;
+			float qtd = this.quantidade.get(p.getCodigo()) - quantidade;
 			if(qtd < 1){
 				produtos.remove(p.getCodigo());
 				this.quantidade.remove(p.getCodigo());
