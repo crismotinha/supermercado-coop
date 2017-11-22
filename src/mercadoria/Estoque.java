@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Estoque {
-	private Map<Integer, Produto> produtos = new HashMap<>();
-	private Map<Integer, Double> quantidade = new HashMap<>();
+	private final Map<Integer, Produto> produtos = new HashMap<>();
+	private final Map<Integer, Double> quantidade = new HashMap<>();
 
 	
 	public Estoque() {
@@ -13,12 +13,16 @@ public class Estoque {
 	}
 	
 	public Produto busca(String produto){
-		Produto p = produtos.getOrDefault(Integer.parseInt(produto), null);
-		if(p != null)
-			return p;
-		else
-			return produtos.getOrDefault(produto.hashCode(), null);
+            
+            Produto p = produtos.getOrDefault(produto.hashCode(), null);		
+            return p;
+		
 	}
+        
+        public Produto busca(int codigo){
+            Produto p = produtos.getOrDefault(codigo, null);		
+            return p;
+        }
 	
 	
 	public boolean adiciona(Produto produto, double quantidade){
@@ -52,5 +56,7 @@ public class Estoque {
 			this.quantidade.put(p.getCodigo(), qtd);
 		}
 	}
+        
+        
 
 }

@@ -1,8 +1,10 @@
-package mercadoria;
+package recursosSistema;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import mercadoria.Estoque;
+import mercadoria.Produto;
 import recursosHumanos.Funcionario;
 
 public class CaixaRegistradora {

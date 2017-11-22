@@ -1,9 +1,10 @@
 
-import mercadoria.CaixaRegistradora;
+import recursosSistema.CaixaRegistradora;
 import mercadoria.Estoque;
 import mercadoria.Produto;
 import recursosHumanos.Funcionario;
 import recursosHumanos.Gerente;
+import recursosSistema.LeitoraDePreco;
 
 
 public class Principal {
@@ -21,8 +22,11 @@ public class Principal {
             cx.addItemDaCompra(gelatina, 10);
             cx.imprimeVendaTotal();
             cx.getPagamento();
-            //estoque.busca(gelatina.getNome());
-            //estoque.busca(arroz.getNome());
+            Produto p1 = estoque.busca("Arroz");
+            System.out.println(p1);
+            LeitoraDePreco lp = new LeitoraDePreco(estoque);
+            lp.ler(gelatina.getCodigo());
+            
 	}
 
 }
