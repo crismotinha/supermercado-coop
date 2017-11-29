@@ -1,38 +1,44 @@
 package mercadoria;
 
 public class Produto {
-	private String nome;
-	private double preco;
-	private int codigo;	
 
-	public Produto(String nome, double preco) {
-		this.nome = nome;
-		this.preco = preco;
-		codigo = nome.hashCode();
-	}
+    private String nome;
+    private double preco;
+    private int codigo;
 
-	public String getNome() {
-		return nome;
-	}
+    public Produto(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+        codigo = nome.hashCode();
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public int getCodigo() {
-		return codigo;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
-	}
+    public int getCodigo() {
+        return codigo;
+    }
 
-	public double getPreco() {
-		return preco;
-	}
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
 
-	public void setPreco(double preco) {
-		this.preco = preco;
-	}
-	
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    @Override
+    public String toString() {
+        return ("\nProduto: " + nome + " - R$ " + preco + " - \nCodigo: " + codigo);
+    }
+
 }
